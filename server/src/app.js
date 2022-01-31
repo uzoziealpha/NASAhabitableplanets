@@ -27,7 +27,10 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 //middleware to get planetRoutes
 app.use(planetsRouter);
-
+//middleware to make the indexpage directly route to the launch page when click
+app.use('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+})
 
 
 
