@@ -7,9 +7,9 @@ const {
     getAllLaunches,
     addNewLaunch,
     existsLaunchWithId,
+    abortLaunchById,
 } = require('../../models/launches.model');
 
-const launchesRouter = require('./launches.router');
 
 //the controller fetches the data and manipulates it to return json in the front end
 function httpGetAllLaunches(req, res) {
@@ -32,7 +32,7 @@ function httpAddNewLaunch(req, res) {
         }
 
 
-    
+        //launch date  
     launch.launchDate = new Date(launch.launchDate);
     //***** This if statement function checks if the date is valid or not */
     //using isNan = not a number

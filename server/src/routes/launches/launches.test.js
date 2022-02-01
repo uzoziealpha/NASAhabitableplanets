@@ -3,7 +3,7 @@ const request = require('supertest');
 //importing app.js to be tested
 const app = require('../../app');
 
-
+//TESTING GET
 describe('TEST GET /launches', () => {
     test('It should respond with 200 success', async () => {
         //telling supertest to look at launches 
@@ -16,18 +16,34 @@ describe('TEST GET /launches', () => {
     });
 })
 
+
+//TESTING POST
 describe('Test POST /launch', () => {
-    test('It should respond with 200 success', async () => {
+    const completedLaunchData = {
+        mission: 'USS Enterprise',
+        rocket: 'NCC 1701-D',
+        target: 'Kepler-186 f',
+        launchDate: 'January 4, 2028',
+    };
+
+    const launchDataWithoutDate = {
+        mission: 'USS Enterprise',
+        rocket: 'NCC 1701-D',
+        target: 'Kepler-186 f',
+    }
+
+    test('It should respond with 201 created', async () => {
       const response = await request(app)
         .post('/launches')
-        .send({
-            mission: 'USS Enterprise',
-            rocket: 'NCC 1701-D',
-            target: 'Kepler-186 f',
-            launchDate: 'January 4, 2028',
-        })
+        .send(completedLaunchData)
         .expect('Content-Type', /json/)
         .expect(201);
+
+       const requestDate = new Date (completedLaunchData.launchDate).valueOf();
+       const responseDate = new Date(response.body.launchDate).valueOf();
+       expect(responseDate).toBe(requestDate);
+        //we use toMatchObject to match the dates 
+        expect(response.body).toMatchObject(launchDataWithoutDate);
     });
     test('It should catch missing required props', () => {});
     test('It should catch invalid dates', () => {});    
