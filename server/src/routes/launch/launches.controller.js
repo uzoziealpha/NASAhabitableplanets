@@ -23,7 +23,7 @@ function httpAddNewLaunch(req, res) {
 //then respond with a response of status 400.  
 // ****SERVER COMPLAINS FOR BAD REQUEST
     if (!launch.mission || !launch.rocket || !launch.launchDate 
-        || !launch.destination) {
+        || !launch.target) {
            return res.status(400).json({
                error: 'Missing required launch props',
            });
