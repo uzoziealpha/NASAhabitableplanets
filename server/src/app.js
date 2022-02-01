@@ -9,27 +9,24 @@ const cors = require('cors');
 
 //import planertouter
 const planetsRouter = require('./routes/planets/planets.router');
+const launchesRouter = require('./routes/launch/launches.router');
+
+
 
 //import morgan to handle logs
 const morgan = require('morgan');
+const { launches } = require('./models/launches.model');
 
 //instatiating express route handlers
 const app = express();
-
-
-
 
 
 //JSON, CORS, EXPRESS middlewares 
 app.use(cors({
     origin: 'http://localhost:3000',
 }));
-//morgan log middleware
+//morgan log middleware joining both client and server logs 
 app.use(morgan('combined'));
-
-
-
-
 
 //express middlewares => thr path.join will make express middleware work on localhost:8000
 app.use(express.json());
@@ -37,8 +34,12 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
 
-//middleware to get planetRoutes
+//express middleware to get planetRoutes
 app.use(planetsRouter);
+//express middleware to get launchdates or ID
+app.use(launchesRouter);
+
+
 //middleware to make the indexpage directly route to the launch page when click
 app.use('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
