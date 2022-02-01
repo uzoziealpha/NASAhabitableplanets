@@ -4,9 +4,9 @@
     "description": "NASA MISSION CONTROL API",
     "main": "src/server.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "watch": "nodemon server.js",
-      "start": "PORT=8000 node src/server.js"
+      "test": "jest",
+      "watch": "nodemon src/server.js",
+      "start": "node src/server.js"
     },
     "keywords": [],
     "author": "",

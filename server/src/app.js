@@ -9,7 +9,7 @@ const cors = require('cors');
 
 //import planertouter
 const planetsRouter = require('./routes/planets/planets.router');
-const launchesRouter = require('./routes/launch/launches.router');
+const launchesRouter = require('./routes/launches/launches.router');
 
 
 
