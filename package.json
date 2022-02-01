@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/uzoziealpha/NASAhabitableplanets/issues"
   },
-  "homepage": "https://github.com/uzoziealpha/NASAhabitableplanets#readme"
+  "homepage": "https://github.com/uzoziealpha/NASAhabitableplanets#readme",
+  "dependencies": {
+    "morgan": "^1.10.0"
+  }
 }

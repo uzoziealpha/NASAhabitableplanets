@@ -5,13 +5,18 @@ const express = require('express');
 const path = require('path');
 
 //import cors middleware
-
 const cors = require('cors');
 
+//import planertouter
 const planetsRouter = require('./routes/planets/planets.router');
 
-//express route handlers
+//import morgan to handle logs
+const morgan = require('morgan');
+
+//instatiating express route handlers
 const app = express();
+
+
 
 
 
@@ -19,6 +24,13 @@ const app = express();
 app.use(cors({
     origin: 'http://localhost:3000',
 }));
+//morgan log middleware
+app.use(morgan('combined'));
+
+
+
+
+
 //express middlewares => thr path.join will make express middleware work on localhost:8000
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
