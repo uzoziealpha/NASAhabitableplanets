@@ -41,7 +41,8 @@ app.use(launchesRouter);
 
 
 //middleware to make the indexpage directly route to the launch page when click
-app.use('/', (req, res) => {
+app.use('/*', (req, res) => {
+//express use the * to make use of every route combining client and server
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 })
 
