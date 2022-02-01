@@ -35,9 +35,9 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 
 //express middleware to get planetRoutes
-app.use(planetsRouter);
+app.use('/planets', planetsRouter);
 //express middleware to get launchdates or ID
-app.use(launchesRouter);
+app.use('/launches', launchesRouter);
 
 
 //middleware to make the indexpage directly route to the launch page when click
