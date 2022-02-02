@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/uzoziealpha/NASAhabitableplanets#readme",
   "dependencies": {
+    "mongoose": "^6.1.10",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
