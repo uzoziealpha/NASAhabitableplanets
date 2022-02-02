@@ -15,15 +15,16 @@ const server = http.createServer(app);
 //pasting mongoURL   changing the first name to whatever 
 const MONGO_URL = 'mongodb+srv://nasa-api:9fmqWw4x4spsafaX@cluster0.ealox.mongodb.net/nasa?retryWrites=true&w=majority'
 
+
+//EVENT HANDLERS MONGOOSE to check when connected to mongodb
 mongoose.connection.once('open', () => {
     console.log('MongoDB connecting ready!');
-})
-
-//declare mongoose error 
+});
+//declare mongoose error with information about errors
 mongoose.connection.on('error', (err) => {
     console.error(err);
-})
-
+});
+//EVENT HANDLERS MONGOOSE
 
 
 

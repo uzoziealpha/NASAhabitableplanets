@@ -1,6 +1,11 @@
+//we import fs to fetch CSV
 const fs = require("fs");
 const path = require("path");
 const  { parse } = require("csv-parse");
+
+const planets = require('./planets.mongo');
+const planetsRouter = require("../routes/planets/planets.router");
+
 
 const habitablePlanets = [];
 
@@ -30,9 +35,13 @@ function loadPlanetsData() {
           columns: true, // this will render an array in objects
         })
       )
-      .on("data", (data) => {
+      .on("data", async (data) => {
+       //updating the data where mongoose wiull stay with await async function 
         if (isHabitableplanet(data)) {
-          habitablePlanets.push(data);
+          // insert + update = upsert 
+         // await planets.create({
+          //  keplerName: data.kepler_name,
+         // });
         }
       }) //error handler to check if the csv name is correct
       .on("error", (err) => {

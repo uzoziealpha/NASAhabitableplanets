@@ -1,3 +1,5 @@
+const launches = require('./launches.mongo');
+
 // we have to store our lunch in an object then making individual variables to be turned into data
 const launches = new Map();
 
@@ -11,7 +13,7 @@ const launch = {
   rocket: "Explorer IS1",
   launchDate: new Date("December 27, 2035"),
   target: "Keplar-442 b",
-  customer: ["NASA", "ALPHAX"],
+  customers: ["NASA", "ALPHAX"],
   upcoming: true,
   success: true,
 };
@@ -38,6 +40,7 @@ function addNewLaunch(launch) {
       //we set these fields to make sure the user has a response after POSTing new launches
       success: true,
       upcoming: true,
+      //we use customers here not customer because its a has many association
       customers: ["Alpha", "NASA"],
       flightNumber: latestFlightNumber,
     })
