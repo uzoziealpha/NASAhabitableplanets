@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
 
 //pasting mongoURL   changing the first name to whatever 
-const MONGO_URL = 'mongodb+srv://nasa-api:9fmqWw4x4spsafaX@cluster0.ealox.mongodb.net/nasa?retryWrites=true&w=majority'
+const MONGO_URL = 'mongodb+srv://nasa-api:<Password>@cluster0.ealox.mongodb.net/nasa?retryWrites=true&w=majority'
 
 
 //EVENT HANDLERS MONGOOSE to check when connected to mongodb

@@ -3,7 +3,7 @@ const { getAllPlanets } = require('../../models/planets.model');
 
 //controller functions to get all planets request and response
 function httpGetAllPlanets(req, res ) {
-  res.status(200).json(getAllPlanets());
+   return res.status(200).json(getAllPlanets());
 }
 
 

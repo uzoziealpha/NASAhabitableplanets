@@ -55,8 +55,12 @@ function loadPlanetsData() {
   });
 }
 
-function getAllPlanets() {
-  return habitablePlanets;
+
+//this will make mongo find the documents 
+async function getAllPlanets() {
+  return await planets.find({
+    keplerName: 'Kepler-62 f',
+  }, '');
 }
 
 module.exports = {
